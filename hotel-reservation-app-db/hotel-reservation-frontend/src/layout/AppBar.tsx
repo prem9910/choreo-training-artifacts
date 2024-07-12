@@ -1,14 +1,15 @@
-import * as React from "react";
+import { Home } from "@mui/icons-material";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { Button } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
-import AppBar from "@mui/material/AppBar";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import { Home } from "@mui/icons-material";
-import { Button, Icon } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Cookies from "js-cookie";
+import * as React from "react";
 import { UserContext } from "../contexts/user";
 
 function UserMenu() {
@@ -53,7 +54,11 @@ function UserMenu() {
             <Typography textAlign="center">My Reservations</Typography>
           </Button>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => {
+sessionStorage.removeItem("userInfo");
+window.location.href =
+`/auth/logout?session_hint=${Cookies.get('session_hint')}`;
+}}>
           <Button style={{ textTransform: "none" }}>
             <Typography textAlign="center">Logout</Typography>
           </Button>
