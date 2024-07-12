@@ -54,11 +54,12 @@ function UserMenu() {
             <Typography textAlign="center">My Reservations</Typography>
           </Button>
         </MenuItem>
-        <MenuItem onClick={() => {
-sessionStorage.removeItem("userInfo");
-window.location.href =
-`/auth/logout?session_hint=${Cookies.get('session_hint')}`;
-}}>
+        <MenuItem
+          onClick={() => {
+            sessionStorage.removeItem("userInfo");
+            window.location.href = `/auth/logout?session_hint=${Cookies.get("session_hint")}`;
+          }}
+        >
           <Button style={{ textTransform: "none" }}>
             <Typography textAlign="center">Logout</Typography>
           </Button>

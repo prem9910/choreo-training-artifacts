@@ -34,7 +34,6 @@ export default function App() {
     mobileNumber: userInfo?.mobile_number || "",
     };
     }
-    
     useEffect(() => {
     setIsAuthLoading(true);
     if (Cookies.get("userinfo")) {
